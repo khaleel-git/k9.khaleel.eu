@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — K9 Web Protection</title>
+  <meta name="description" content="Contact Khaleel Ahmad, the developer of K9 Web Protection. Report bugs, ask questions, or get support." />
+  <link rel="canonical" href="https://k9.khaleel.eu/contact" />
+  <link rel="icon" href="/icon.png" />
+  <meta name="theme-color" content="#080f1e" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080f1e; --bg2: #0d1830; --bg3: #111e38;
+      --accent: #4db8ff; --accent2: #2196f3; --green: #22c55e;
+      --text1: #f0f6ff; --text2: #94a3c0; --text3: #5a6a85;
+      --border: rgba(77,184,255,.12); --radius: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text1); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(8,15,30,.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 16px; font-weight: 700; color: var(--text1); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .page-hero { max-width: 760px; margin: 0 auto; padding: 72px 24px 48px; }
+    .page-hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, #fff 40%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+    .page-hero p { font-size: 16px; color: var(--text2); }
+    .content { max-width: 760px; margin: 0 auto; padding: 0 24px 100px; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .contact-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-decoration: none; transition: border-color .2s; display: block; }
+    .contact-card:hover { border-color: rgba(77,184,255,.3); }
+    .contact-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
+    .contact-icon.email { background: rgba(77,184,255,.1); }
+    .contact-icon.github { background: rgba(255,255,255,.07); }
+    .contact-icon.linkedin { background: rgba(10,102,194,.2); }
+    .contact-icon.web { background: rgba(34,197,94,.1); }
+    .contact-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--text1); }
+    .contact-card p { font-size: 13px; color: var(--text3); }
+    .contact-card span { font-size: 13px; color: var(--accent); margin-top: 8px; display: block; }
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 20px; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .publisher-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .publisher-row { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 14px; }
+    .publisher-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .publisher-row .label { color: var(--text3); font-weight: 500; min-width: 160px; }
+    .publisher-row .value { color: var(--text1); text-align: right; }
+    .publisher-row .value a { color: var(--accent); text-decoration: none; }
+    .publisher-row .value a:hover { text-decoration: underline; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25); color: var(--green); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: .5px; }
+    .bugs-note { background: rgba(77,184,255,.06); border: 1px solid rgba(77,184,255,.2); border-radius: var(--radius); padding: 20px 24px; font-size: 14px; color: var(--text2); }
+    .bugs-note a { color: var(--accent); text-decoration: none; }
+    .bugs-note a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 28px 24px; border-top: 1px solid var(--border); color: var(--text3); font-size: 13px; }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 600px) { nav { padding: 14px 20px; } .nav-links { display: none; } .publisher-row { flex-direction: column; gap: 4px; } .publisher-row .value { text-align: left; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="/icon.png" alt="K9 Web Protection icon" />
+    <span>K9 Web Protection</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features">Features</a>
+    <a href="/#how-it-works">How it works</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Contact</h1>
+  <p>Reach out for support, bug reports, or general questions.</p>
+</div>
+
+<div class="content">
+
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:khaleel.eu@gmail.com">
+      <div class="contact-icon email">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#4db8ff"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </div>
+      <h3>Email</h3>
+      <p>General questions &amp; support</p>
+      <span>khaleel.eu@gmail.com</span>
+    </a>
+    <a class="contact-card" href="https://github.com/khaleel-git/K9-Web-Protection/issues" target="_blank" rel="noopener">
+      <div class="contact-icon github">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#f0f6ff"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"/></svg>
+      </div>
+      <h3>GitHub Issues</h3>
+      <p>Bug reports &amp; feature requests</p>
+      <span>Open an issue →</span>
+    </a>
+    <a class="contact-card" href="https://www.linkedin.com/in/khaleel-ahmad/" target="_blank" rel="noopener">
+      <div class="contact-icon linkedin">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </div>
+      <h3>LinkedIn</h3>
+      <p>Professional enquiries</p>
+      <span>linkedin.com/in/khaleel-ahmad</span>
+    </a>
+    <a class="contact-card" href="https://khaleel.eu" target="_blank" rel="noopener">
+      <div class="contact-icon web">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#22c55e"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      </div>
+      <h3>Website</h3>
+      <p>Portfolio &amp; other projects</p>
+      <span>khaleel.eu</span>
+    </a>
+  </div>
+
+  <div class="bugs-note" style="margin-bottom:48px;">
+    For bug reports, please <a href="https://github.com/khaleel-git/K9-Web-Protection/issues/new" target="_blank" rel="noopener">open a GitHub issue</a> — it's the fastest way to get a fix tracked and resolved. Include your macOS version, what happened, and what you expected to happen.
+  </div>
+
+  <div class="section">
+    <h2>Software Publisher Information</h2>
+    <div class="publisher-card">
+      <div class="publisher-row">
+        <span class="label">Publisher name</span>
+        <span class="value">Khaleel Ahmad</span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Website</span>
+        <span class="value"><a href="https://k9.khaleel.eu">https://k9.khaleel.eu</a></span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Personal website</span>
+        <span class="value"><a href="https://khaleel.eu" target="_blank" rel="noopener">https://khaleel.eu</a></span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Software</span>
+        <span class="value">K9 Web Protection</span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Platform</span>
+        <span class="value">macOS, Windows</span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Source code</span>
+        <span class="value"><a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">github.com/khaleel-git/K9-Web-Protection</a></span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Code signing</span>
+        <span class="value" style="display:flex;align-items:center;gap:8px;justify-content:flex-end;flex-wrap:wrap;">
+          <span class="badge">Open Source</span>
+          Free signing by <a href="https://signpath.org" target="_blank" rel="noopener">SignPath Foundation</a>
+        </span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Certificate authority</span>
+        <span class="value"><a href="https://www.certum.eu" target="_blank" rel="noopener">Certum</a></span>
+      </div>
+      <div class="publisher-row">
+        <span class="label">Contact email</span>
+        <span class="value"><a href="mailto:khaleel.eu@gmail.com">khaleel.eu@gmail.com</a></span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/privacy">Privacy</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    <a href="/contact">Contact</a> &nbsp;·&nbsp;
+    Made by <a href="https://khaleel.eu" target="_blank" rel="noopener">Khaleel Ahmad</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — K9 Web Protection</title>
+  <meta name="description" content="Privacy policy for K9 Web Protection. All filtering is 100% local — no data ever leaves your device." />
+  <link rel="canonical" href="https://k9.khaleel.eu/privacy" />
+  <link rel="icon" href="/icon.png" />
+  <meta name="theme-color" content="#080f1e" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #080f1e; --bg2: #0d1830; --bg3: #111e38;
+      --accent: #4db8ff; --accent2: #2196f3;
+      --text1: #f0f6ff; --text2: #94a3c0; --text3: #5a6a85;
+      --border: rgba(77,184,255,.12); --radius: 16px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text1); line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(8,15,30,.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 16px; font-weight: 700; color: var(--text1); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .page-hero { max-width: 760px; margin: 0 auto; padding: 72px 24px 48px; }
+    .page-hero h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, #fff 40%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 12px; }
+    .page-hero .updated { font-size: 13px; color: var(--text3); }
+    .content { max-width: 760px; margin: 0 auto; padding: 0 24px 100px; }
+    .section { margin-bottom: 48px; }
+    .section h2 { font-size: 20px; font-weight: 700; color: var(--text1); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .section p { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 12px; }
+    .section ul { padding-left: 20px; }
+    .section ul li { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 6px; }
+    .highlight-box { background: rgba(77,184,255,.06); border: 1px solid rgba(77,184,255,.2); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 24px; }
+    .highlight-box p { color: var(--text1); font-size: 15px; margin: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 28px 24px; border-top: 1px solid var(--border); color: var(--text3); font-size: 13px; }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    @media (max-width: 600px) { nav { padding: 14px 20px; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="/icon.png" alt="K9 Web Protection icon" />
+    <span>K9 Web Protection</span>
+  </a>
+  <div class="nav-links">
+    <a href="/#features">Features</a>
+    <a href="/#how-it-works">How it works</a>
+    <a href="/#faq">FAQ</a>
+    <a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: May 2026</p>
+</div>
+
+<div class="content">
+
+  <div class="highlight-box">
+    <p>K9 Web Protection processes everything 100% locally on your device. No browsing history, blocked URLs, or personal data ever leaves your machine. The app has no backend, no accounts, and no telemetry.</p>
+  </div>
+
+  <div class="section">
+    <h2>1. The Application</h2>
+    <p>K9 Web Protection (the app) runs entirely on your computer. It does not transmit any data to Khaleel Ahmad or any third party. Specifically:</p>
+    <ul>
+      <li>No URLs or browsing history are logged or sent anywhere</li>
+      <li>No blocked request counts are reported externally</li>
+      <li>No user accounts or registration are required</li>
+      <li>No analytics, crash reports, or update checks are made</li>
+      <li>All configuration is stored locally in <code style="background:rgba(77,184,255,.1);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:13px">~/.k9webprotection/config.json</code> on your device only</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. This Website (k9.khaleel.eu)</h2>
+    <p>The website collects minimal, anonymous data to understand how many people visit and download the app:</p>
+    <ul>
+      <li><strong>Page views</strong> — a counter is incremented when you visit the homepage. No IP address, device info, or session data is stored.</li>
+      <li><strong>Download clicks</strong> — a counter is incremented when the download button is clicked. No personal data is attached.</li>
+    </ul>
+    <p>This data is stored in Cloudflare KV (key-value storage) as plain integers. It is used solely to understand download demand and is never shared with third parties.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Cookies</h2>
+    <p>This website sets one cookie only if you visit the <a href="/stats">/stats</a> analytics dashboard and enter the correct PIN. It is a session authentication cookie (<code style="background:rgba(77,184,255,.1);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:13px">k9_auth</code>) valid for 7 days, scoped to <code style="background:rgba(77,184,255,.1);padding:1px 6px;border-radius:4px;color:var(--accent);font-size:13px">/stats</code> only, and contains no personal information. No other cookies are set.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Third Parties</h2>
+    <p>This website is hosted on <strong>Cloudflare Pages</strong>. Cloudflare may process request metadata (IP address, user agent) as part of DDoS protection and CDN operation, subject to <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a>.</p>
+    <p>The download link points to <strong>GitHub Releases</strong>. GitHub may log download requests subject to <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Policy</a>.</p>
+    <p>No advertising networks, tracking pixels, or analytics SDKs are used on this website.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Children's Privacy</h2>
+    <p>K9 Web Protection is a parental control tool designed to protect children online. The app itself collects no data from anyone, including children. This website is not directed at children and does not knowingly collect information from minors.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Changes to This Policy</h2>
+    <p>If this policy changes materially, the "Last updated" date at the top of this page will be revised. Continued use of the website or app after changes constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Contact</h2>
+    <p>Questions about this privacy policy? <a href="/contact">Contact Khaleel Ahmad</a>.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="/">Home</a> &nbsp;·&nbsp;
+    <a href="/privacy">Privacy</a> &nbsp;·&nbsp;
+    <a href="/terms">Terms</a> &nbsp;·&nbsp;
+    <a href="/contact">Contact</a> &nbsp;·&nbsp;
+    Made by <a href="https://khaleel.eu" target="_blank" rel="noopener">Khaleel Ahmad</a>
+  </p>
+</footer>
+
+</body>
+</html>
