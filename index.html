@@ -215,8 +215,8 @@
       background: var(--bg3);
       border: 1px solid var(--border);
       color: var(--text2);
-      cursor: not-allowed;
     }
+    .btn-windows:hover { box-shadow: 0 8px 24px rgba(0,0,0,.3); color: var(--text1); }
     .btn-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
     .btn-label { display: flex; flex-direction: column; text-align: left; }
     .btn-label small { font-size: 11px; font-weight: 400; opacity: .75; }
@@ -506,17 +506,19 @@
         macOS — v2.0
       </div>
     </a>
-    <span class="btn-download btn-windows" aria-label="Windows version coming soon">
+    <a href="https://github.com/khaleel-git/K9-Web-Protection/releases/download/V1.2/K9WebProtection-setup.exe"
+       class="btn-download btn-windows"
+       aria-label="Download K9 Web Protection for Windows">
       <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M3 12V6.75l6-1.32v6.57H3zm17 0V5l-9 1.74V12h9zM3 13h6v6.57L3 18.25V13zm17 0h-9v6.25L20 21V13z"/>
       </svg>
       <div class="btn-label">
-        <small>Coming soon</small>
-        Windows
+        <small>Download for</small>
+        Windows — v1.1
       </div>
-    </span>
+    </a>
   </div>
-  <p class="coming-soon">macOS 12 Monterey or later · Apple Silicon &amp; Intel · Free forever · .zip app bundle</p>
+  <p class="coming-soon">macOS 12+ · Apple Silicon &amp; Intel · .zip &nbsp;|&nbsp; Windows 10/11 64-bit · .exe installer</p>
 </section>
 
 <!-- ── Stats ────────────────────────────────────────────────────────────────── -->
@@ -776,7 +778,7 @@
 </footer>
 
 <script>
-  document.querySelectorAll('a.btn-mac').forEach(function(btn) {
+  document.querySelectorAll('a.btn-mac, a.btn-windows').forEach(function(btn) {
     btn.addEventListener('click', function() {
       navigator.sendBeacon('/api/track', JSON.stringify({ event: 'download' }));
     });
