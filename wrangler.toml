@@ -1,2 +1,7 @@
 name = "k9-web-protection"
 pages_build_output_dir = "."
+compatibility_date = "2026-05-29"
+
+[[kv_namespaces]]
+binding = "k9_analytics"
+id = "c05b7f97cec849008ee00e9a6bde8ceb"

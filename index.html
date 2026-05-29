@@ -600,8 +600,18 @@
     <a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">View on GitHub</a>
     &nbsp;·&nbsp;
     Made by <a href="https://khaleel.eu" target="_blank" rel="noopener">Khaleel</a>
+    &nbsp;·&nbsp;
+    <a href="/stats">Analytics</a>
   </p>
 </footer>
 
+<script>
+  // Track download button clicks
+  document.querySelectorAll('a.btn-mac').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      navigator.sendBeacon('/api/track', JSON.stringify({ event: 'download' }));
+    });
+  });
+</script>
 </body>
 </html>
