@@ -831,7 +831,8 @@
   // Download tracking
   document.querySelectorAll('a.btn-mac, a.btn-windows').forEach(function(btn) {
     btn.addEventListener('click', function() {
-      navigator.sendBeacon('/api/track', JSON.stringify({ event: 'download' }));
+      var data = new Blob([JSON.stringify({ event: 'download' })], { type: 'application/json' });
+      navigator.sendBeacon('/api/track', data);
     });
   });
 

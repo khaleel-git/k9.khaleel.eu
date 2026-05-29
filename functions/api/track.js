@@ -7,7 +7,8 @@ export async function onRequestPost(context) {
 
   let event = 'unknown';
   try {
-    const body = await request.json();
+    const text = await request.text();
+    const body = JSON.parse(text);
     event = body.event || 'unknown';
   } catch {
     return new Response('bad request', { status: 400 });
