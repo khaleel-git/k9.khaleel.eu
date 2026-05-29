@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>K9 Web Protection — Free Parental Control & Content Filter for Mac</title>
+  <meta name="description" content="K9 Web Protection is a free, open-source parental control app for Mac. Block adult content, filter harmful websites, and keep your family safe online." />
+  <meta name="keywords" content="parental controls mac, web filter mac, content blocker mac, adult content filter, family safety software, free parental control, open source content filter" />
+  <meta name="author" content="Khaleel" />
+  <link rel="canonical" href="https://k9.khaleel.eu/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://k9.khaleel.eu/" />
+  <meta property="og:title" content="K9 Web Protection — Free Parental Control for Mac" />
+  <meta property="og:description" content="Free, open-source web filtering and parental control app for Mac. Block adult content and protect your family with two layers of protection." />
+  <meta property="og:image" content="https://k9.khaleel.eu/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="K9 Web Protection — Free Parental Control for Mac" />
+  <meta name="twitter:description" content="Free, open-source web filtering and parental control app for Mac." />
+  <meta name="twitter:image" content="https://k9.khaleel.eu/og-image.png" />
+
+  <!-- Schema.org SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "K9 Web Protection",
+    "operatingSystem": "macOS",
+    "applicationCategory": "UtilitiesApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Free, open-source parental control and web filtering app for Mac. Blocks adult content, harmful websites, and supports two layers of protection.",
+    "url": "https://k9.khaleel.eu/",
+    "screenshot": "https://k9.khaleel.eu/screenshot.png",
+    "softwareVersion": "2.0.0",
+    "releaseNotes": "Rebuilt from scratch in Go with a native macOS UI.",
+    "author": {
+      "@type": "Person",
+      "name": "Khaleel",
+      "url": "https://khaleel.eu"
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #080f1e;
+      --bg2:      #0d1830;
+      --bg3:      #111e38;
+      --accent:   #4db8ff;
+      --accent2:  #2196f3;
+      --green:    #22c55e;
+      --text1:    #f0f6ff;
+      --text2:    #94a3c0;
+      --text3:    #5a6a85;
+      --border:   rgba(77,184,255,.12);
+      --radius:   16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text1);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Nav ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(8,15,30,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 34px; height: 34px; border-radius: 8px; }
+    .nav-logo span { font-size: 16px; font-weight: 700; color: var(--text1); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── Hero ────────────────────────────────────────────────────────────── */
+    .hero {
+      text-align: center;
+      padding: 100px 24px 80px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(77,184,255,.1);
+      border: 1px solid rgba(77,184,255,.25);
+      color: var(--accent);
+      font-size: 12px; font-weight: 600; letter-spacing: .5px;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+    .hero-icon {
+      width: 112px; height: 112px;
+      border-radius: 24px;
+      margin: 0 auto 28px;
+      display: block;
+      box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 18px; color: var(--text2);
+      max-width: 540px; margin: 0 auto 44px;
+      line-height: 1.7;
+    }
+    .download-buttons {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-size: 15px; font-weight: 600;
+      text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      cursor: pointer; border: none;
+    }
+    .btn-download:hover { transform: translateY(-2px); }
+    .btn-mac {
+      background: linear-gradient(135deg, var(--accent2), #1565c0);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(33,150,243,.35);
+    }
+    .btn-mac:hover { box-shadow: 0 12px 40px rgba(33,150,243,.5); }
+    .btn-windows {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      cursor: not-allowed;
+    }
+    .btn-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+    .btn-label { display: flex; flex-direction: column; text-align: left; }
+    .btn-label small { font-size: 11px; font-weight: 400; opacity: .75; }
+    .coming-soon {
+      font-size: 11px; color: var(--text3); margin-top: 12px; text-align: center;
+    }
+
+    /* ── Features ────────────────────────────────────────────────────────── */
+    .features {
+      max-width: 1000px; margin: 0 auto;
+      padding: 0 24px 100px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color .2s;
+    }
+    .feature-card:hover { border-color: rgba(77,184,255,.3); }
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: rgba(77,184,255,.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .feature-card p  { font-size: 14px; color: var(--text2); line-height: 1.6; }
+
+    /* ── Stats ───────────────────────────────────────────────────────────── */
+    .stats {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex; gap: 0;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .stat {
+      flex: 1;
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-value { font-size: 32px; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+    /* ── How it works ────────────────────────────────────────────────────── */
+    .how {
+      max-width: 760px; margin: 0 auto;
+      padding: 0 24px 100px;
+      text-align: center;
+    }
+    .how h2 {
+      font-size: 32px; font-weight: 800; margin-bottom: 12px;
+    }
+    .how .sub { color: var(--text2); margin-bottom: 52px; }
+    .steps {
+      display: flex; flex-direction: column; gap: 16px; text-align: left;
+    }
+    .step {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .step-num {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: rgba(77,184,255,.15);
+      color: var(--accent); font-weight: 700; font-size: 14px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .step-body p  { font-size: 13px; color: var(--text2); }
+
+    /* ── CTA ─────────────────────────────────────────────────────────────── */
+    .cta {
+      text-align: center;
+      padding: 80px 24px 100px;
+      background: linear-gradient(180deg, transparent, rgba(77,184,255,.04));
+      border-top: 1px solid var(--border);
+    }
+    .cta h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+    .cta p  { color: var(--text2); margin-bottom: 36px; }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text3);
+      font-size: 13px;
+    }
+    footer a { color: var(--text3); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Section header ──────────────────────────────────────────────────── */
+    .section-header { text-align: center; padding: 0 24px 48px; }
+    .section-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
+    .section-header p  { color: var(--text2); max-width: 500px; margin: 0 auto; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 64px 20px 60px; }
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ─────────────────────────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="icon.png" alt="K9 Web Protection icon" />
+    <span>K9 Web Protection</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="https://github.com/khaleelagha/k9-web-protection" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Free &amp; Open Source
+  </div>
+  <img src="icon.png" alt="K9 Web Protection" class="hero-icon" />
+  <h1>Web Protection<br>for Your Family</h1>
+  <p>A free, open-source parental control app for Mac. Block adult content, harmful websites, and keep your family safe online — no subscription required.</p>
+  <div class="download-buttons">
+    <a href="https://github.com/khaleelagha/k9-web-protection/releases/latest/download/K9-Web-Protection.dmg"
+       class="btn-download btn-mac"
+       aria-label="Download K9 Web Protection for Mac">
+      <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      <div class="btn-label">
+        <small>Download for</small>
+        macOS
+      </div>
+    </a>
+    <span class="btn-download btn-windows" aria-label="Windows version coming soon">
+      <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 12V6.75l6-1.32v6.57H3zm17 0V5l-9 1.74V12h9zM3 13h6v6.57L3 18.25V13zm17 0h-9v6.25L20 21V13z"/>
+      </svg>
+      <div class="btn-label">
+        <small>Coming soon</small>
+        Windows
+      </div>
+    </span>
+  </div>
+  <p class="coming-soon">macOS 12 Monterey or later · Apple Silicon &amp; Intel · Free forever</p>
+</section>
+
+<!-- ── Stats ────────────────────────────────────────────────────────────────── -->
+<div style="max-width:760px;margin:0 auto;padding:0 24px 80px;">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">2</div>
+      <div class="stat-label">Layers of protection</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100K+</div>
+      <div class="stat-label">Blocked domains</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Free</div>
+      <div class="stat-label">No subscription</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Open</div>
+      <div class="stat-label">Source code</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Features ─────────────────────────────────────────────────────────────── -->
+<div id="features" style="max-width:1000px;margin:0 auto;padding:0 24px 52px;" class="section-header">
+  <h2>Everything you need to stay protected</h2>
+  <p>Two independent layers of protection work together to block harmful content before it reaches your screen.</p>
+</div>
+<div class="features">
+  <div class="feature-card">
+    <div class="feature-icon">🛡️</div>
+    <h3>Layer 1 — DNS Blocking</h3>
+    <p>Blocks harmful domains at the system level via <code>/etc/hosts</code>. Works for every app and browser on your Mac, even offline.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔍</div>
+    <h3>Layer 2 — Proxy Filter</h3>
+    <p>A local HTTPS proxy inspects URLs and keywords in real time, catching content that slips past DNS blocking.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔒</div>
+    <h3>Password Protection</h3>
+    <p>Lock settings and the uninstall process behind a password. Changing any filter requires authentication.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🐾</div>
+    <h3>100K+ Blocked Domains</h3>
+    <p>A built-in database of adult domains, URL patterns, and harmful keywords — updated with every release.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔑</div>
+    <h3>Custom Block &amp; Allow Lists</h3>
+    <p>Add your own domains to the blocklist or whitelist specific sites that the built-in filter would otherwise block.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔄</div>
+    <h3>Auto-Restart Watchdog</h3>
+    <p>A background watchdog ensures the app and its protection layers restart automatically if anything is force-stopped.</p>
+  </div>
+</div>
+
+<!-- ── How it works ──────────────────────────────────────────────────────────── -->
+<section id="how-it-works" class="how">
+  <div class="section-header" style="padding-bottom:40px;">
+    <h2>Up and running in minutes</h2>
+    <p class="sub">No technical knowledge required.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Download &amp; install</h4>
+        <p>Download the DMG, open it, and run the installer. It copies the app to your Applications folder and sets up the background service.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Set a password</h4>
+        <p>Open K9 Web Protection, go to Settings, and set a password. This prevents the filters from being turned off without your approval.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Enable protection</h4>
+        <p>Click "Enable Protection" on the dashboard. Both layers activate instantly — all browsers are now filtered.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Stay protected</h4>
+        <p>K9 runs silently in the background, survives restarts, and watches over itself. Set it and forget it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
+<section class="cta">
+  <h2>Free. Forever.</h2>
+  <p>No ads, no subscriptions, no data collection. Just protection.</p>
+  <div class="download-buttons">
+    <a href="https://github.com/khaleelagha/k9-web-protection/releases/latest/download/K9-Web-Protection.dmg"
+       class="btn-download btn-mac">
+      <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      <div class="btn-label">
+        <small>Download free for</small>
+        macOS
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────────────────────────── -->
+<footer>
+  <p>
+    K9 Web Protection is free and open source.
+    <a href="https://github.com/khaleelagha/k9-web-protection" target="_blank" rel="noopener">View on GitHub</a>
+    &nbsp;·&nbsp;
+    Made by <a href="https://khaleel.eu" target="_blank" rel="noopener">Khaleel</a>
+  </p>
+</footer>
+
+</body>
+</html>
