@@ -206,17 +206,22 @@
     }
     .btn-download:hover { transform: translateY(-2px); }
     .btn-mac {
-      background: linear-gradient(135deg, var(--accent2), #1565c0);
-      color: #fff;
-      box-shadow: 0 8px 32px rgba(33,150,243,.35);
+      background: var(--bg3);
+      border: 1px solid rgba(77,184,255,.2);
+      color: var(--text2);
     }
-    .btn-mac:hover { box-shadow: 0 12px 40px rgba(33,150,243,.5); }
+    .btn-mac:hover {
+      background: linear-gradient(135deg, var(--accent2), #1565c0);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 12px 40px rgba(33,150,243,.5);
+    }
     .btn-windows {
       background: var(--bg3);
       border: 1px solid var(--border);
       color: var(--text2);
     }
-    .btn-windows:hover { box-shadow: 0 8px 24px rgba(0,0,0,.3); color: var(--text1); }
+    .btn-windows:hover { border-color: rgba(255,255,255,.2); color: var(--text1); box-shadow: 0 8px 24px rgba(0,0,0,.3); }
     .btn-icon { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
     .btn-label { display: flex; flex-direction: column; text-align: left; }
     .btn-label small { font-size: 11px; font-weight: 400; opacity: .75; }
