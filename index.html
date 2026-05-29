@@ -6,23 +6,25 @@
 
   <!-- Primary SEO -->
   <title>K9 Web Protection — Free Parental Control & Content Filter for Mac</title>
-  <meta name="description" content="K9 Web Protection is a free, open-source parental control app for Mac. Block adult content, filter harmful websites, and keep your family safe online." />
-  <meta name="keywords" content="parental controls mac, web filter mac, content blocker mac, adult content filter, family safety software, free parental control, open source content filter" />
+  <meta name="description" content="Free, open-source parental control app for Mac. Blocks adult content in every browser — including incognito — using two independent OS-level protection layers. No subscription, no data collection." />
+  <meta name="keywords" content="parental controls mac, web filter mac, content blocker mac, adult content filter, family safety software, free parental control, open source content filter, incognito blocking mac, all browsers content filter, self control app mac" />
   <meta name="author" content="Khaleel" />
   <link rel="canonical" href="https://k9.khaleel.eu/" />
+  <link rel="icon" href="/icon.png" />
+  <meta name="theme-color" content="#080f1e" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://k9.khaleel.eu/" />
   <meta property="og:title" content="K9 Web Protection — Free Parental Control for Mac" />
   <meta property="og:description" content="Free, open-source web filtering and parental control app for Mac. Block adult content and protect your family with two layers of protection." />
-  <meta property="og:image" content="https://k9.khaleel.eu/og-image.png" />
+  <meta property="og:image" content="https://k9.khaleel.eu/icon.png" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="K9 Web Protection — Free Parental Control for Mac" />
   <meta name="twitter:description" content="Free, open-source web filtering and parental control app for Mac." />
-  <meta name="twitter:image" content="https://k9.khaleel.eu/og-image.png" />
+  <meta name="twitter:image" content="https://k9.khaleel.eu/icon.png" />
 
   <!-- Schema.org SoftwareApplication -->
   <script type="application/ld+json">
@@ -39,7 +41,7 @@
     },
     "description": "Free, open-source parental control and web filtering app for Mac. Blocks adult content, harmful websites, and supports two layers of protection.",
     "url": "https://k9.khaleel.eu/",
-    "screenshot": "https://k9.khaleel.eu/screenshot.png",
+    "screenshot": "https://k9.khaleel.eu/icon.png",
     "softwareVersion": "2.0.0",
     "releaseNotes": "Rebuilt from scratch in Go with a native macOS UI.",
     "author": {
@@ -47,6 +49,63 @@
       "name": "Khaleel",
       "url": "https://khaleel.eu"
     }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is K9 Web Protection really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — completely free, forever. There is no premium tier, no subscription, and no hidden fees. The full source code is open on GitHub for anyone to audit or build from."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it work in all browsers, including incognito mode?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. K9 operates at the OS network level — not as a browser extension. The system proxy (Layer 2) and hosts file (Layer 1) block content in every browser: Chrome, Firefox, Safari, Brave, Arc, and others. Incognito and private browsing modes are fully covered."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does K9 collect any of my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All processing is 100% local on your machine. No URLs, browsing history, or statistics ever leave your device. There is no telemetry, no account required, and no internet connection needed for the filter to work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What content does K9 block?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "K9 blocks adult domains (built-in database), adult URL patterns, explicit keywords, image search on major search engines, YouTube (optional), and enforces Safe Search on Google, Bing, and DuckDuckGo. You can add custom domains to the blocklist or allowlist at any time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the default password?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The default password is k9.khaleel.eu. Change it immediately in Settings after first launch — the default is public knowledge and anyone who knows it could disable protection."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will K9 slow down my internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Negligibly. Layer 1 (hosts file) adds zero latency. Layer 2 (local proxy) routes traffic through 127.0.0.1:8080 — a localhost connection — adding under 1ms of overhead. In everyday browsing the difference is imperceptible."
+        }
+      }
+    ]
   }
   </script>
 
@@ -268,6 +327,38 @@
     .section-header h2 { font-size: 32px; font-weight: 800; margin-bottom: 12px; }
     .section-header p  { color: var(--text2); max-width: 500px; margin: 0 auto; }
 
+    /* ── FAQ ────────────────────────────────────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item[open] { border-color: rgba(77,184,255,.3); }
+    .faq-item summary {
+      font-size: 15px; font-weight: 600;
+      padding: 18px 24px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; list-style: none; user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+'; font-size: 22px; font-weight: 300;
+      color: var(--accent); flex-shrink: 0;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-body {
+      padding: 0 24px 20px;
+      font-size: 14px; color: var(--text2); line-height: 1.7;
+    }
+    .faq-body code {
+      background: rgba(77,184,255,.1); border-radius: 4px;
+      padding: 1px 6px; font-size: 13px; color: var(--accent);
+    }
+
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -289,7 +380,8 @@
   <div class="nav-links">
     <a href="#features">Features</a>
     <a href="#how-it-works">How it works</a>
-    <a href="https://github.com/khaleelagha/k9-web-protection" target="_blank" rel="noopener">GitHub</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">GitHub</a>
   </div>
 </nav>
 
@@ -303,7 +395,7 @@
   <h1>Web Protection<br>for Your Family</h1>
   <p>A free, open-source parental control app for Mac. Block adult content, harmful websites, and keep your family safe online — no subscription required.</p>
   <div class="download-buttons">
-    <a href="https://github.com/khaleelagha/k9-web-protection/releases/latest/download/K9-Web-Protection.dmg"
+    <a href="https://github.com/khaleel-git/K9-Web-Protection/releases/latest/download/K9.Web.Protection.app.zip"
        class="btn-download btn-mac"
        aria-label="Download K9 Web Protection for Mac">
       <svg class="btn-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -311,7 +403,7 @@
       </svg>
       <div class="btn-label">
         <small>Download for</small>
-        macOS
+        macOS — v2.0
       </div>
     </a>
     <span class="btn-download btn-windows" aria-label="Windows version coming soon">
@@ -324,7 +416,7 @@
       </div>
     </span>
   </div>
-  <p class="coming-soon">macOS 12 Monterey or later · Apple Silicon &amp; Intel · Free forever</p>
+  <p class="coming-soon">macOS 12 Monterey or later · Apple Silicon &amp; Intel · Free forever · .zip app bundle</p>
 </section>
 
 <!-- ── Stats ────────────────────────────────────────────────────────────────── -->
@@ -363,7 +455,7 @@
   <div class="feature-card">
     <div class="feature-icon">🔍</div>
     <h3>Layer 2 — Proxy Filter</h3>
-    <p>A local HTTPS proxy inspects URLs and keywords in real time, catching content that slips past DNS blocking.</p>
+    <p>A local HTTPS proxy inspects URLs and keywords in real time. Works in every browser — Chrome, Firefox, Safari, Brave — including incognito and private browsing modes.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">🔒</div>
@@ -371,9 +463,19 @@
     <p>Lock settings and the uninstall process behind a password. Changing any filter requires authentication.</p>
   </div>
   <div class="feature-card">
-    <div class="feature-icon">🐾</div>
-    <h3>100K+ Blocked Domains</h3>
-    <p>A built-in database of adult domains, URL patterns, and harmful keywords — updated with every release.</p>
+    <div class="feature-icon">⏱️</div>
+    <h3>Focus Mode</h3>
+    <p>Timed lock from 30 minutes up to 8 hours. Once active, the protection cannot be disabled until the timer expires — even by you.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">⏳</div>
+    <h3>Disable Delay</h3>
+    <p>Require a 1–48 hour waiting period before protection can be turned off. Prevents impulsive bypassing in moments of weakness.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">👤</div>
+    <h3>Accountability Partner</h3>
+    <p>Store a partner's email address inside the app. Their presence raises the cost of bypassing — accountability without surveillance.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">🔑</div>
@@ -383,7 +485,17 @@
   <div class="feature-card">
     <div class="feature-icon">🔄</div>
     <h3>Auto-Restart Watchdog</h3>
-    <p>A background watchdog ensures the app and its protection layers restart automatically if anything is force-stopped.</p>
+    <p>A background agent re-locks binaries and re-enables the proxy every 10 seconds. Cannot be defeated by force-quitting the app.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🎛️</div>
+    <h3>Content Toggles</h3>
+    <p>Individually switch off adult content, explicit image search, YouTube, and Safe Search enforcement on Google, Bing, and DuckDuckGo.</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🔐</div>
+    <h3>100% Local &amp; Private</h3>
+    <p>All filtering runs on your machine. No URLs, history, or stats ever leave your device. No telemetry, no accounts, no internet required to function.</p>
   </div>
 </div>
 
@@ -398,14 +510,14 @@
       <div class="step-num">1</div>
       <div class="step-body">
         <h4>Download &amp; install</h4>
-        <p>Download the DMG, open it, and run the installer. It copies the app to your Applications folder and sets up the background service.</p>
+        <p>Download the zip, unzip it, and drag <strong>K9 Web Protection.app</strong> to your Applications folder. On first launch, macOS may show a Gatekeeper warning — go to System Settings → Privacy &amp; Security → Allow Anyway.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-body">
-        <h4>Set a password</h4>
-        <p>Open K9 Web Protection, go to Settings, and set a password. This prevents the filters from being turned off without your approval.</p>
+        <h4>Change the default password</h4>
+        <p>Open K9 Web Protection, go to Settings, and change the password. The default is <strong>k9.khaleel.eu</strong> — update it immediately so only you can disable protection.</p>
       </div>
     </div>
     <div class="step">
@@ -425,19 +537,57 @@
   </div>
 </section>
 
+<!-- ── FAQ ───────────────────────────────────────────────────────────────────── -->
+<section id="faq" style="max-width:760px;margin:0 auto;padding:0 24px 100px;">
+  <div class="section-header" style="padding-bottom:40px;">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about K9 Web Protection.</p>
+  </div>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Is K9 Web Protection really free?</summary>
+      <div class="faq-body">Completely free, forever — no premium tier, no subscription, no hidden fees. The full source code is open on GitHub for anyone to audit or build from.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does it work in all browsers, including incognito?</summary>
+      <div class="faq-body">Yes. K9 operates at the OS network level — not as a browser extension. The system proxy (Layer 2) and hosts file (Layer 1) filter traffic in every browser: Chrome, Firefox, Safari, Brave, Arc, and others. Incognito and private browsing modes are fully covered.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Does K9 collect any of my data?</summary>
+      <div class="faq-body">No. All filtering runs 100% locally on your machine. No URLs, browsing history, or statistics ever leave your device. There is no telemetry, no account required, and no internet connection needed for the filter to work.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What content does K9 block?</summary>
+      <div class="faq-body">K9 blocks adult domains (built-in database), adult URL patterns, explicit keywords, explicit image search, YouTube (optional), and enforces Safe Search on Google, Bing, and DuckDuckGo. You can also add custom domains to the blocklist or allowlist at any time.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What is the default password?</summary>
+      <div class="faq-body">The default password is <strong>k9.khaleel.eu</strong>. Change it immediately in Settings after first launch — the default is public knowledge and anyone who knows it could disable protection.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Will K9 slow down my internet?</summary>
+      <div class="faq-body">Negligibly. Layer 1 (hosts file) adds zero latency. Layer 2 (local proxy) routes traffic through <code>127.0.0.1:8080</code> — a localhost connection — adding under 1ms of overhead. In everyday browsing the difference is imperceptible.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can K9 be bypassed with a VPN?</summary>
+      <div class="faq-body">VPN apps that route through the system proxy are still filtered. For maximum protection, use Focus Mode or Disable Delay — these make it impossible to turn K9 off for a set period, even if a bypass is attempted.</div>
+    </details>
+  </div>
+</section>
+
 <!-- ── CTA ───────────────────────────────────────────────────────────────────── -->
 <section class="cta">
   <h2>Free. Forever.</h2>
   <p>No ads, no subscriptions, no data collection. Just protection.</p>
   <div class="download-buttons">
-    <a href="https://github.com/khaleelagha/k9-web-protection/releases/latest/download/K9-Web-Protection.dmg"
+    <a href="https://github.com/khaleel-git/K9-Web-Protection/releases/latest/download/K9.Web.Protection.app.zip"
        class="btn-download btn-mac">
       <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
       </svg>
       <div class="btn-label">
         <small>Download free for</small>
-        macOS
+        macOS — v2.0
       </div>
     </a>
   </div>
@@ -447,7 +597,7 @@
 <footer>
   <p>
     K9 Web Protection is free and open source.
-    <a href="https://github.com/khaleelagha/k9-web-protection" target="_blank" rel="noopener">View on GitHub</a>
+    <a href="https://github.com/khaleel-git/K9-Web-Protection" target="_blank" rel="noopener">View on GitHub</a>
     &nbsp;·&nbsp;
     Made by <a href="https://khaleel.eu" target="_blank" rel="noopener">Khaleel</a>
   </p>
